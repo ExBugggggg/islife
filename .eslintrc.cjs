@@ -16,7 +16,7 @@ module.exports = {
     'parserOptions': {
         'ecmaVersion': 'latest',
         'sourceType': 'module',
-        'parser': '@typescript-eslint/parser'
+        'parser': require.resolve('@typescript-eslint/parser')
     },
     'plugins': [
         'vue',
@@ -37,6 +37,16 @@ module.exports = {
         ],
         'no-console': 'warn',
         'no-empty-function': 'warn',
-        'no-multiple-empty-lines': 'warn'
+        'no-multiple-empty-lines': 'warn',
+        '@typescript-eslint/ban-types': [
+            'error',
+            {
+                'extendDefaults': true,
+                'types': {
+                    '{}': false
+                }
+            }
+        ],
+        '@typescript-eslint/no-explicit-any': ['off']
     }
 }
